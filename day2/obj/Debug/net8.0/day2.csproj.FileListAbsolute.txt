@@ -1,0 +1,14 @@
+/home/acidslug/Documents/code/AoC/day2/obj/Debug/net8.0/day2.GeneratedMSBuildEditorConfig.editorconfig
+/home/acidslug/Documents/code/AoC/day2/obj/Debug/net8.0/day2.AssemblyInfoInputs.cache
+/home/acidslug/Documents/code/AoC/day2/obj/Debug/net8.0/day2.AssemblyInfo.cs
+/home/acidslug/Documents/code/AoC/day2/obj/Debug/net8.0/day2.csproj.CoreCompileInputs.cache
+/home/acidslug/Documents/code/AoC/day2/bin/Debug/net8.0/day2
+/home/acidslug/Documents/code/AoC/day2/bin/Debug/net8.0/day2.deps.json
+/home/acidslug/Documents/code/AoC/day2/bin/Debug/net8.0/day2.runtimeconfig.json
+/home/acidslug/Documents/code/AoC/day2/bin/Debug/net8.0/day2.dll
+/home/acidslug/Documents/code/AoC/day2/bin/Debug/net8.0/day2.pdb
+/home/acidslug/Documents/code/AoC/day2/obj/Debug/net8.0/day2.dll
+/home/acidslug/Documents/code/AoC/day2/obj/Debug/net8.0/refint/day2.dll
+/home/acidslug/Documents/code/AoC/day2/obj/Debug/net8.0/day2.pdb
+/home/acidslug/Documents/code/AoC/day2/obj/Debug/net8.0/day2.genruntimeconfig.cache
+/home/acidslug/Documents/code/AoC/day2/obj/Debug/net8.0/ref/day2.dll
