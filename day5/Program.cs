@@ -15,10 +15,12 @@ internal class Program {
 
         ParseFile();
         PartOne();
+        seeds.Clear();
         PartTwo();
 
         
         void PartOne() {
+            ParseSeeds();
             MapInterface currentMap = maps[$"seed-to-soil"];
             foreach(var seed in seeds) {
                 var value = seed.Identifier;
@@ -35,14 +37,55 @@ internal class Program {
         }
 
         void PartTwo() {
-            
+            ParseSeedsAsRange();
+            MapInterface currentMap = maps[$"seed-to-soil"];
+            foreach(var seed in seeds) {
+                var value = seed.Identifier;
+                while(currentMap.Destination != "location") {
+                    value = currentMap.GetDestination(value);
+                    currentMap = maps.Values.FirstOrDefault(map => map.Source == currentMap.Destination) ?? throw new Exception($"Could not find map with source {currentMap.Destination}");
+                }
+                seed.Location = currentMap.GetDestination(value);
+                currentMap = maps[$"seed-to-soil"];
+                Console.WriteLine($"Seed {seed.Identifier} has location {seed.Location}");
+            }
+
+            Console.WriteLine($"Nearest location is {seeds.Min(seed => seed.Location)}");
+        }
+
+        void ParseSeeds() {
+            foreach(var line in File.ReadLines("./input-demo.txt")) {
+                if(line.Contains("seeds:")) {
+                    foreach(var seedNumber in line.Split(" ", StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries).Skip(1).Select(long.Parse)) {
+                        seeds.Add(new Seed(seedNumber));
+                    }
+                    return;
+                }
+            }
+        }
+
+        void ParseSeedsAsRange() {
+            foreach(var line in File.ReadLines("./input-demo.txt")) {
+                if(line.Contains("seeds:")) {
+                    var seedRanges = line.Split(" ", StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries).Skip(1).Select(long.Parse).ToArray();
+                    
+                    for(var i = 0; i < seedRanges.Length; i += 2) {
+                        Console.WriteLine($"{seedRanges[i]} generate {seedRanges[i + 1]}");
+                        seeds.Add(new Seed(seedRanges[i]));
+                        // for(long j = seedRanges[i]; j < seedRanges[i] + seedRanges[i + 1]; j++) {
+                        //     seeds.Add(new Seed(j));
+                        // }
+                    }
+                    Console.WriteLine($"Seeds: {string.Join(",", seeds.Select(x=>x.Identifier))}");
+                }
+            }
         }
 
         void ParseFile() {
             var bundleName = string.Empty;
             var bundle = new List<MapEntry>();
             var bundleNamePattern = @$"(?<bundleName>[a-zA-X\-]+)( map)?:";
-            foreach(var line in File.ReadLines("./input.txt")) {
+            foreach(var line in File.ReadLines("./input-demo.txt")) {
                 switch(line) {
                     case string a when a.Contains("seeds:"): {
                         foreach(var seedNumber in line.Split(" ", StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries).Skip(1).Select(long.Parse)) {
@@ -89,6 +132,14 @@ public record MapEntry(long Destination, long Source, long Range) {
     public static implicit operator MapEntry(long[] values) {
         if(values.Length < 3) throw new Exception("Invalid array to convert to MapEntry.");
         return new MapEntry(values[0], values[1], values[2]);
+    }
+
+    public (long Min, long Max) GetSourceRange() => (Source, Source + Range);
+    public (long Min, long Max) GetDestinationRange() => (Destination, Destination + Range);
+
+    public bool ContainsValue(long value, bool checkDestination = false) {
+        var range = checkDestination ? GetDestinationRange() : GetSourceRange();
+        return value >= range.Min && value <= range.Max;
     }
 }
 
