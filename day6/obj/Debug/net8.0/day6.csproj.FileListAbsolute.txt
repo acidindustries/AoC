@@ -1,0 +1,15 @@
+/home/acidslug/Documents/code/AoC/day6/bin/Debug/net8.0/day6
+/home/acidslug/Documents/code/AoC/day6/bin/Debug/net8.0/day6.deps.json
+/home/acidslug/Documents/code/AoC/day6/bin/Debug/net8.0/day6.runtimeconfig.json
+/home/acidslug/Documents/code/AoC/day6/bin/Debug/net8.0/day6.dll
+/home/acidslug/Documents/code/AoC/day6/bin/Debug/net8.0/day6.pdb
+/home/acidslug/Documents/code/AoC/day6/obj/Debug/net8.0/day6.GeneratedMSBuildEditorConfig.editorconfig
+/home/acidslug/Documents/code/AoC/day6/obj/Debug/net8.0/day6.AssemblyInfoInputs.cache
+/home/acidslug/Documents/code/AoC/day6/obj/Debug/net8.0/day6.AssemblyInfo.cs
+/home/acidslug/Documents/code/AoC/day6/obj/Debug/net8.0/day6.csproj.CoreCompileInputs.cache
+/home/acidslug/Documents/code/AoC/day6/obj/Debug/net8.0/day6.sourcelink.json
+/home/acidslug/Documents/code/AoC/day6/obj/Debug/net8.0/day6.dll
+/home/acidslug/Documents/code/AoC/day6/obj/Debug/net8.0/refint/day6.dll
+/home/acidslug/Documents/code/AoC/day6/obj/Debug/net8.0/day6.pdb
+/home/acidslug/Documents/code/AoC/day6/obj/Debug/net8.0/day6.genruntimeconfig.cache
+/home/acidslug/Documents/code/AoC/day6/obj/Debug/net8.0/ref/day6.dll
